@@ -6,36 +6,42 @@ let MouseY: number = 0;
 let CursorX: number = 0;
 let CursorY: number = 0;
 
-(function CursorAnimationFrame() {
-	const dx = MouseX - CursorX;
-	const dy = MouseY - CursorY;
+if (!/Android|iPhone|iPad|iPod|Opera Mini|IEMobile/i.test(navigator.userAgent)) {
+	console.log("Mobile");
 
-	CursorX += dx * 0.15;
-	CursorY += dy * 0.15;
+	(function CursorAnimationFrame() {
+		const dx = MouseX - CursorX;
+		const dy = MouseY - CursorY;
 
-	Cursor.style.left = CursorX + "px";
-	Cursor.style.top = CursorY + "px";
+		CursorX += dx * 0.15;
+		CursorY += dy * 0.15;
 
-	document.documentElement.style.setProperty("--cursor-x", CursorX + "px");
-	document.documentElement.style.setProperty("--cursor-y", CursorY + "px");
-	requestAnimationFrame(CursorAnimationFrame);
-})();
+		Cursor.style.left = CursorX + "px";
+		Cursor.style.top = CursorY + "px";
 
-document.addEventListener("mousemove", (event) => {
-	MouseX = event.clientX;
-	MouseY = event.clientY;
+		document.documentElement.style.setProperty("--cursor-x", CursorX + "px");
+		document.documentElement.style.setProperty("--cursor-y", CursorY + "px");
+		requestAnimationFrame(CursorAnimationFrame);
+	})();
 
-	if (event.target) {
-		const Object = event.target as HTMLElement;
+	document.addEventListener("mousemove", (event) => {
+		MouseX = event.clientX;
+		MouseY = event.clientY;
 
-		if (Object.classList.contains("hoverable")) {
-			Cursor.classList.add("active");
+		if (event.target) {
+			const Object = event.target as HTMLElement;
+
+			if (Object.classList.contains("hoverable")) {
+				Cursor.classList.add("active");
+			}
 		}
-	}
-});
-
-HoverableObjects.forEach((Object) => {
-	Object.addEventListener("mouseleave", () => {
-		Cursor.classList.remove("active");
 	});
-});
+
+	HoverableObjects.forEach((Object) => {
+		Object.addEventListener("mouseleave", () => {
+			Cursor.classList.remove("active");
+		});
+	});
+} else {
+	Cursor.style.display = "none";
+}
