@@ -6,6 +6,13 @@
 		<script src="https://cdn.tailwindcss.com"></script>
 		<link rel="stylesheet" href="public/style.css" />
 
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+			integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer" />
+
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
@@ -41,7 +48,7 @@
 							none: "none",
 						},
 						screens: {
-							phone: { min: "480px", max: "1028px" },
+							phone: { min: "480px", max: "1028px" }, // 480px - 1028px
 						},
 					},
 				},
@@ -56,8 +63,10 @@
 		<div id="noise"></div>
 		<div id="spotlight"></div>
 
-		<main class="relative flex flex-col min-h-screen w-full max-w-[1920px] overflow-hidden">
-			<nav class="absolute flex justify-between items-center inset-0 mx-auto h-16 z-[999] px-8">
+		<main
+			class="relative flex flex-col min-h-screen w-full max-w-[1920px] overflow-hidden [-webkit-mask-image:linear-gradient(to_left,transparent_0%,black_5%,black_95%,transparent_100%)]">
+			<nav
+				class="fixed max-w-[1920px] flex justify-between items-center inset-0 mx-auto h-16 z-[999] px-24 phone:px-6 after:bg-black/85 phone:after:bg-black/20 after:content-[''] after:absolute after:inset-0 after:z-[-1] after:[-webkit-mask-image:linear-gradient(to_bottom,black_0%,70%,transparent_100%)] after:h-[150%]">
 				<span class="flex items-center">
 					<span class="nav-index text-neon text-sm align-top mr-4 text-center">01</span>
 					<span class="nav-text uppercase text-white text-sm tracking-wider">Profile</span>
@@ -66,28 +75,35 @@
 				<ul class="flex justify-center items-center gap-6 text-white font-bold text-lg">
 					<li>
 						<a
-							href=""
+							href="#profile"
 							class="hoverable hover:text-neon transition-all ease-in-out duration-500 cursor-none uppercase text-sm font-thin phone:hidden"
 							>[Profile]</a
 						>
 					</li>
 					<li>
 						<a
-							href=""
+							href="#skills"
 							class="hoverable hover:text-neon transition-all ease-in-out duration-500 cursor-none uppercase text-sm font-thin phone:hidden"
 							>[Skills]</a
 						>
 					</li>
 					<li>
 						<a
-							href=""
+							href="#works"
 							class="hoverable hover:text-neon transition-all ease-in-out duration-500 cursor-none uppercase text-sm font-thin phone:hidden"
 							>[Works]</a
 						>
 					</li>
 					<li>
 						<a
-							href=""
+							href="#education"
+							class="hoverable hover:text-neon transition-all ease-in-out duration-500 cursor-none uppercase text-sm font-thin phone:hidden"
+							>[Education]</a
+						>
+					</li>
+					<li>
+						<a
+							href="#contact"
 							class="hoverable hover:text-neon transition-all ease-in-out duration-500 cursor-none uppercase text-sm font-thin phone:hidden"
 							>[Contact]</a
 						>
@@ -96,27 +112,27 @@
 					<li>
 						<a
 							href=""
-							class="hoverable hover:text-neon transition-all ease-in-out duration-500 cursor-none uppercase text-sm font-thin min-[1028px]:hidden"
+							class="hoverable hover:text-neon transition-all ease-in-out duration-500 cursor-none uppercase text-sm font-thin hidden phone:flex"
 							>[Menu]</a
 						>
 					</li>
 				</ul>
 			</nav>
 
-			<section id="profile" class="flex justify-center w-full min-h-screen phone:min-h-0">
-				<div class="relative flex flex-col justify-center w-min h-max text-white pt-20">
+			<section id="profile" class="flex justify-center w-full min-h-max phone:min-h-0">
+				<div class="relative flex flex-col justify-center w-min h-max text-white pt-24">
 					<div
-						class="tilted-bg absolute -z-10 w-[160rem] h-[42rem] phone:h-[22rem] bg-[rgba(38,38,38,0.2)] -top-[16rem] phone:-top-[10rem] -left-[16rem] origin-top-left rotate-[25deg]"></div>
+						class="tilted-bg absolute -z-10 w-[160rem] h-[42rem] phone:h-[22rem] bg-[rgba(38,38,38,0.1)] -top-[16rem] phone:-top-[10rem] -left-[16rem] origin-top-left rotate-[25deg]"></div>
 
 					<span
-						class="hoverable font-sans text-[clamp(4rem,10vw,12rem)] font-bold h-min w-max leading-none"
+						class="hoverable font-sans text-[clamp(5rem,10vw,12rem)] phone:mb-4 font-bold h-min w-max leading-none tracking-tighter"
 						data-aos="fade-right"
 						data-aos-duration="1600"
 						>STUDENT</span
 					>
 
-					<div class="flex gap-4 phone:flex-col">
-						<div class="flex flex-col justify-center introduction-container border-l-2 border-neon pl-6 phone:max-w-[24rem]">
+					<div class="flex gap-4 phone:flex-col items-center phone:items-start">
+						<div class="flex flex-col introduction-container border-l-2 border-neon pl-6 phone:max-w-[24rem] max-h-min">
 							<span class="font-bold text-2xl text-nowrap">Hello, my name is <span class="text-neon">Bratha</span>.</span>
 							<p class="mt-4 text-[#cacacaca] text-[clamp(0.8rem,1.5vw,1rem)]">
 								I'm a student at <span class="text-white">SMK TI Bali Global Denpasar.</span>
@@ -126,7 +142,7 @@
 
 						<div data-aos="fade-left" data-aos-duration="1600" data-aos-delay="300">
 							<span
-								class="hoverable font-sans pl-12 text-[clamp(4rem,10vw,12rem)] font-bold shrink-0 text-transparent [-webkit-text-stroke:1px_#737373] hover:[-webkit-text-stroke:1px_#ccff00] hover:text-neon transition-all duration-500 ease-in-out"
+								class="hoverable font-sans pl-12 text-[clamp(5rem,10vw,12rem)] font-bold shrink-0 text-transparent tracking-tighter [-webkit-text-stroke:1px_#737373] hover:[-webkit-text-stroke:1px_#ccff00] hover:text-neon transition-all duration-500 ease-in-out"
 								>DEVELOPER</span
 							>
 						</div>
@@ -145,7 +161,7 @@
 
 						<div data-aos="fade-left" data-aos-duration="1600" data-aos-delay="800">
 							<span
-								class="hoverable font-sans text-end text-[clamp(4rem,10vw,12rem)] font-bold text-[#737373] hover:text-white transition-all duration-500 ease-in-out leading-none"
+								class="hoverable font-sans text-end tracking-tighter text-[clamp(5rem,10vw,12rem)] font-bold text-gray-500 hover:text-white transition-all duration-500 ease-in-out leading-none"
 								>ENGINEER</span
 							>
 						</div>
@@ -153,19 +169,372 @@
 				</div>
 			</section>
 
-			<section id="skills" class="flex justify-center items-center w-full min-h-screen">
-				<div class="font-mono font-extrabold text-8xl text-white p-4 border-b-2 border-neon" data-aos="fade-up" data-aos-duration="1600">
-					<span>Coming</span>
-					<span class="text-neon">Soon</span>
+			<section id="skills" class="flex flex-col w-full items-center mt-20">
+				<div class="scroll-container text-white bg-void h-max border-y border-[#262626] my-12 phone:my-6">
+					<div
+						class="scroll-content flex text-8xl phone:text-6xl font-bold font-sans text-nowrap [-webkit-text-stroke:1px_#333] text-transparent py-12 tracking-tighter uppercase">
+						<div class="ml-8 mr-8">Tailwind</div>
+						<div class="ml-8 mr-8">Networking</div>
+						<div class="ml-8 mr-8 text-neon">Python</div>
+						<div class="ml-8 mr-8">JavaScript</div>
+						<div class="ml-8 mr-8 text-neon">TypeScript</div>
+						<div class="ml-8 mr-8">Arduino</div>
+						<div class="ml-8 mr-8 text-neon">React</div>
+
+						<div class="ml-8 mr-8">Tailwind</div>
+						<div class="ml-8 mr-8">Networking</div>
+						<div class="ml-8 mr-8 text-neon">Python</div>
+						<div class="ml-8 mr-8">JavaScript</div>
+						<div class="ml-8 mr-8 text-neon">TypeScript</div>
+						<div class="ml-8 mr-8">Arduino</div>
+						<div class="ml-8 mr-8 text-neon">React</div>
+					</div>
+				</div>
+
+				<div class="w-[80%]">
+					<div class="flex justify-between items-center uppercase font-sans text-white h-40" data-aos="fade-left" data-aos-duration="1600">
+						<div class="flex gap-4">
+							<span class="text-neon text-3xl phone:text-2xl font-bold">02</span>
+							<span class="text-5xl font-bold text-nowrap phone:text-4xl">Techstack</span>
+						</div>
+
+						<span class="text-mute phone:hidden">SYS_CHECK.conf</span>
+					</div>
+
+					<div class="grid gap-8 xl:grid-cols-4 md:grid-cols-2 phone:grid-cols-1">
+						<div class="flex flex-col" data-aos="fade-up" data-aos-duration="1600" data-aos-delay="100">
+							<div class="flex h-max items-center gap-2 uppercase text-sm text-neon font-sans mb-4">
+								<i class="fa-solid fa-terminal"></i>
+								<span>Core Languanges</span>
+							</div>
+
+							<div
+								class="group flex p-3 items-center justify-between border border-subtle text-white mb-4 text-sm hover:border-neon transition-colors duration-500 ease-in-out hoverable">
+								<span>Python</span>
+								<span class="uppercase font-bold text-neon group-hover:text-neon transition-colors duration-500 ease-in-out"
+									>Mastered</span
+								>
+							</div>
+
+							<div
+								class="group flex p-3 items-center justify-between border border-subtle text-white mb-4 text-sm hover:border-neon transition-colors duration-500 ease-in-out hoverable">
+								<span>TypeScript</span>
+								<span class="uppercase text-mute group-hover:text-neon transition-colors duration-500 ease-in-out">Intermediate</span>
+							</div>
+
+							<div
+								class="group flex p-3 items-center justify-between border border-subtle text-white mb-4 text-sm hover:border-neon transition-colors duration-500 ease-in-out hoverable">
+								<span>SQL</span>
+								<span class="uppercase text-mute group-hover:text-neon transition-colors duration-500 ease-in-out">Intermediate</span>
+							</div>
+
+							<div
+								class="group flex p-3 items-center justify-between border border-subtle text-white mb-4 text-sm hover:border-neon transition-colors duration-500 ease-in-out hoverable">
+								<span>C++</span>
+								<span class="uppercase text-mute group-hover:text-neon transition-colors duration-500 ease-in-out">Basic</span>
+							</div>
+						</div>
+
+						<div class="flex flex-col" data-aos="fade-up" data-aos-duration="1600" data-aos-delay="200">
+							<div class="flex h-max items-center gap-2 uppercase text-sm text-neon font-sans mb-4">
+								<i class="fa-solid fa-server"></i>
+								<span>Backend & Web</span>
+							</div>
+
+							<div
+								class="group flex p-3 items-center justify-between border border-subtle hover:border-neon text-white mb-4 text-sm transition-colors duration-500 ease-in-out hoverable">
+								<span>WebSocket / SocketIO</span>
+								<i class="fa-solid fa-bolt text-mute group-hover:text-neon transition-colors duration-500 ease-in-out"></i>
+							</div>
+
+							<div
+								class="group flex p-3 items-center justify-between border border-subtle hover:border-neon text-white mb-4 text-sm transition-colors duration-500 ease-in-out hoverable">
+								<span>HTML & CSS</span>
+								<i class="fa-solid fa-code text-mute group-hover:text-neon transition-colors duration-500 ease-in-out"></i>
+							</div>
+
+							<div
+								class="group flex p-3 items-center justify-between border border-subtle hover:border-neon text-white mb-4 text-sm transition-colors duration-500 ease-in-out hoverable">
+								<span>Rest APIs</span>
+								<i class="fa-solid fa-circle-nodes text-mute group-hover:text-neon transition-colors duration-500 ease-in-out"></i>
+							</div>
+
+							<div
+								class="group flex p-3 items-center justify-between border border-subtle hover:border-neon text-white mb-4 text-sm transition-colors duration-500 ease-in-out hoverable">
+								<span>SQL</span>
+								<i class="fa-solid fa-database text-mute group-hover:text-neon transition-colors duration-500 ease-in-out"></i>
+							</div>
+						</div>
+						<div class="flex flex-col" data-aos="fade-up" data-aos-duration="1600" data-aos-delay="300">
+							<div class="flex h-max items-center gap-2 uppercase text-sm text-neon font-sans mb-4">
+								<i class="fa-solid fa-microchip"></i>
+								<span>Hardware & IoT</span>
+							</div>
+
+							<div class="flex gap-2 flex-wrap text-white text-sm">
+								<div class="py-2 px-4 border border-subtle hover:border-white transition-colors duration-500 ease-in-out hoverable">
+									ESP32
+								</div>
+								<div class="py-2 px-4 border border-subtle hover:border-white transition-colors duration-500 ease-in-out hoverable">
+									Arduino
+								</div>
+								<div class="py-2 px-4 border border-subtle hover:border-white transition-colors duration-500 ease-in-out hoverable">
+									Sensors
+								</div>
+								<div class="py-2 px-4 border border-subtle hover:border-white transition-colors duration-500 ease-in-out hoverable">
+									Serial Comm
+								</div>
+								<div class="py-2 px-4 border border-subtle hover:border-white transition-colors duration-500 ease-in-out hoverable">
+									WiFi/BLE
+								</div>
+								<div class="py-2 px-4 border border-subtle hover:border-white transition-colors duration-500 ease-in-out hoverable">
+									Blynk
+								</div>
+							</div>
+						</div>
+						<div class="flex flex-col" data-aos="fade-up" data-aos-duration="1600" data-aos-delay="400">
+							<div class="flex h-max items-center gap-2 uppercase text-sm text-neon font-sans mb-4">
+								<i class="fa-solid fa-briefcase"></i>
+								<span>Toolkit</span>
+							</div>
+
+							<div class="border border-subtle text-white p-4 text-sm border-l-4 border-l-neon">
+								<span class="text-gray-400">My primary development environment and utilities.</span>
+
+								<ul class="mt-4 tracking-wide text-xs">
+									<li class="flex items-center gap-2">
+										<div class="bg-neon w-1 h-1"></div>
+										VS Code
+									</li>
+									<li class="flex items-center gap-2">
+										<div class="bg-neon w-1 h-1"></div>
+										Ubuntu (WSL)
+									</li>
+									<li class="flex items-center gap-2">
+										<div class="bg-neon w-1 h-1"></div>
+										Git & GitHub
+									</li>
+									<li class="flex items-center gap-2">
+										<div class="bg-neon w-1 h-1"></div>
+										Docker
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
 				</div>
 			</section>
 
-			<!--<section id="works" class="flex justify-center items-center w-full">
-				<div class="bg-white">hello</div>
+			<section id="works" class="flex justify-center items-center w-full mt-16">
+				<div class="w-[80%]">
+					<div
+						class="flex justify-between items-center uppercase font-sans text-white h-40 border-b border-subtle"
+						data-aos="fade-up"
+						data-aos-duration="1600">
+						<div class="flex gap-4">
+							<span class="text-neon text-3xl phone:text-2xl font-bold">03</span>
+							<span class="text-5xl font-bold text-nowrap phone:text-4xl">Selected Works</span>
+						</div>
+
+						<span class="text-mute phone:hidden">Hover to Preview</span>
+					</div>
+
+					<div
+						class="flex group justify-between phone:flex-col items-center phone:items-start phone:justify-center font-sans text-white h-40 border-b border-subtle hoverable"
+						data-aos="fade-up"
+						data-aos-duration="1600"
+						data-aos-delay="100">
+						<div class="flex flex-col gap-1">
+							<span class="text-5xl phone:text-4xl font-bold group-hover:text-neon transition-colors duration-500 ease-in-out"
+								>Portfolio</span
+							>
+							<span class="text-mute tracking-wider">TypeScript / Tailwind</span>
+						</div>
+
+						<div class="px-6 py-2 text-neon rounded-full border-neon border text-mono text-xs phone:mt-4">2025</div>
+					</div>
+
+					<div
+						class="flex group justify-between phone:flex-col items-center phone:items-start phone:justify-center font-sans text-white h-40 border-b border-subtle hoverable"
+						data-aos="fade-up"
+						data-aos-duration="1600"
+						data-aos-delay="200">
+						<div class="flex flex-col gap-1">
+							<span class="text-5xl phone:text-4xl font-bold group-hover:text-neon transition-colors duration-500 ease-in-out"
+								>Webshocket</span
+							>
+							<span class="text-mute tracking-wider">Python3 / WebSockets</span>
+						</div>
+
+						<div class="px-6 py-2 text-neon rounded-full border-neon border text-mono text-xs phone:mt-4">2025</div>
+					</div>
+
+					<div
+						class="flex group justify-between phone:flex-col items-center phone:items-start phone:justify-center font-sans text-white h-40 hoverable"
+						data-aos="fade-up"
+						data-aos-duration="1600"
+						data-aos-delay="300">
+						<div class="flex flex-col gap-1">
+							<span class="text-5xl phone:text-4xl font-bold group-hover:text-neon transition-colors duration-500 ease-in-out"
+								>AI Learning App</span
+							>
+							<span class="text-mute tracking-wider">Python3 / Streamlit </span>
+						</div>
+
+						<div class="px-6 py-2 text-neon rounded-full border-neon border text-mono text-xs phone:mt-4">2025</div>
+					</div>
+				</div>
 			</section>
-			<section id="contact" class="flex justify-center items-center w-full">
-				<div class="bg-white">hello</div>
-			</section> -->
+
+			<section id="education" class="flex justify-center items-center w-full mt-16 bg-subtle/10 border-y border-subtle pb-16">
+				<div class="w-[80%]">
+					<div class="flex justify-between items-center uppercase font-sans text-white h-40" data-aos="fade-right" data-aos-duration="1600">
+						<div class="flex gap-4">
+							<span class="text-neon text-3xl phone:text-2xl font-bold">04</span>
+							<span class="text-5xl font-bold text-nowrap phone:text-4xl">System Log</span>
+						</div>
+
+						<span class="text-mute phone:hidden">Education & Experience</span>
+					</div>
+
+					<div class="flex gap-16 phone:flex-col">
+						<div class="w-[50%] phone:w-full text-sm">
+							<span class="flex text-neon border-b border-subtle uppercase text-sm items-center gap-2 w-max pb-2 mb-12">
+								<span class="text-xs"> ></span>
+								Education.log
+							</span>
+
+							<div
+								class="flex flex-col border-l border-l-subtle pl-4 hover:border-neon transition-colors duration-500 ease-in-out hoverable">
+								<div class="flex justify-between text-white w-full">
+									<span class="font-bold text-lg">SMK TI Bali Global DPS</span>
+									<div class="text-[10px] py-1 px-3 bg-neon/20 text-neon rounded-lg uppercase">CURRENT</div>
+								</div>
+
+								<span class="text-sm text-gray-300/80 mb-4">Software Engineering & Web Development</span>
+								<div class="text-sm text-mute w-[85%]">
+									Currently in SMK TI Bali Global Denpasar, I am currently focusing on Software Engineering and Web Development and
+									also learning about Networking.
+								</div>
+							</div>
+						</div>
+
+						<div class="w-[50%] phone:w-full text-sm">
+							<span class="flex text-neon border-b border-subtle uppercase text-sm items-center gap-2 w-max pb-2 mb-12">
+								<span class="text-xs"> ></span>
+								Activity.log
+							</span>
+
+							<div
+								class="flex flex-col border-l border-l-subtle pl-4 hover:border-neon transition-colors duration-500 ease-in-out hoverable">
+								<div class="flex justify-between text-white w-full">
+									<span class="font-bold text-lg">Robotics Club Member</span>
+									<div class="text-[10px] py-1 px-3 bg-subtle/50 text-gray-400 rounded-lg uppercase">2024 - Present</div>
+								</div>
+
+								<span class="text-sm text-gray-300/80 mb-4">Leader of IOT Robotics Club</span>
+								<div class="text-sm text-mute w-[85%]">
+									Have created several robots for various events, participated in a robotics competitions and teaches other member of
+									the robotics club.
+								</div>
+							</div>
+
+							<div
+								class="flex flex-col border-l border-l-subtle pl-4 hover:border-neon transition-colors duration-500 ease-in-out mt-12 hoverable">
+								<div class="flex justify-between text-white w-full">
+									<span class="font-bold text-lg">Personal Project</span>
+									<div class="text-[10px] py-1 px-3 bg-subtle/50 text-gray-400 rounded-lg uppercase">Ongoing</div>
+								</div>
+
+								<span class="text-sm text-gray-300/80 mb-4">Python & Automation</span>
+								<div class="text-sm text-mute w-[85%]">
+									I'm actively working on personal projects using Python to enhance my skills and automate various tasks.
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section
+				id="contact"
+				class="flex flex-col min-h-64 relative justify-center items-center w-full mt-36 border-t-2 border-dashed border-subtle py-24">
+				<div class="flex w-[80%] min-h-32 flex-col" data-aos="fade-up" data-aos-duration="1600">
+					<div class="flex w-full phone:flex-col xl:flex-row gap-12">
+						<div class="flex flex-col w-[50%] xl:w-[50%] phone:w-full">
+							<span class="uppercase text-neon tracking-widest">// Establish_Connection</span>
+							<span class="text-8xl phone:text-6xl font-sans text-white font-bold">
+								GET IN <span class="text-transparent [-webkit-text-stroke:1px_#737373]">TOUCH</span>
+							</span>
+
+							<div class="flex gap-8 mt-4">
+								<div class="flex items-center bg-black/70 grow rounded-md gap-1 pl-4 shadow-[0_0_12px_1px_#ccff0030] hoverable">
+									<span class="text-neon"> ></span>
+									<input type="text" class="grow p-3 bg-transparent text-white focus:outline-none" />
+								</div>
+								<button class="bg-neon/80 px-4 rounded-sm w-[20%] shadow-[0_0_12px_1px_#ccff0030]">Send</button>
+							</div>
+						</div>
+
+						<div class="flex flex-col grow h-max">
+							<div class="flex w-full gap-6">
+								<div class="flex flex-col border border-subtle grow p-4 h-max bg-black/50">
+									<span class="text-mute text-xs uppercase">System_Health</span>
+
+									<div class="relative w-full h-1 bg-subtle mt-2">
+										<div class="absolute inset-0 w-[94%] h-full bg-neon"></div>
+									</div>
+
+									<span class="text-end text-xs text-white mt-2">94% Optimal</span>
+								</div>
+
+								<div class="flex flex-col border border-subtle grow p-4 h-auto bg-black/50">
+									<span class="text-mute text-xs uppercase">Current_Status</span>
+
+									<div class="flex items-center mt-1">
+										<div class="relative rounded-full h-2 w-2 bg-green-400">
+											<div class="absolute inset-0 m-auto w-full h-full bg-green-400 animate-ping rounded-full"></div>
+										</div>
+
+										<span class="text-white text-sm ml-2">Online</span>
+									</div>
+								</div>
+							</div>
+
+							<div class="h-10 w-full border-t border-subtle mt-8 pt-8">
+								<div class="flex justify-between">
+									<div class="flex gap-4 text-white">
+										<a
+											href="https://github.com/floydous"
+											target="_blank"
+											class="hover:text-neon transition-colors ease-in-out duration-500 hoverable uppercase text-mute"
+											>GitHub</a
+										>
+										<a
+											href="https://discord.com/users/602514702974582804"
+											target="_blank"
+											class="hover:text-neon transition-colors ease-in-out duration-500 hoverable uppercase text-mute"
+											>Discord</a
+										>
+										<a
+											href="https://www.linkedin.com/in/bratha/"
+											target="_blank"
+											class="hover:text-neon transition-colors ease-in-out duration-500 hoverable uppercase text-mute"
+											>LinkedIn</a
+										>
+									</div>
+
+									<span class="text-subtle">Codename: Dyra</span>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="flex justify-between w-full border-t border-subtle mt-16 pt-8">
+						<span class="text-mute text-sm">© 2025 Brat. All rights reserved.</span>
+					</div>
+				</div>
+			</section>
 		</main>
 	</body>
 </html>
