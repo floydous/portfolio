@@ -2,3 +2,4 @@
 .env*.local
 reference.html
 node_modules
+/.vscode
