@@ -3,3 +3,4 @@
 reference.html
 node_modules
 /.vscode
+*.map
