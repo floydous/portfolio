@@ -1,6 +1,7 @@
 const Cursor = document.getElementById("cursor") as HTMLDivElement;
 const HoverableObjects = document.querySelectorAll(".hoverable") as NodeListOf<HTMLElement>;
 
+let LastHoveredObject: HTMLElement | null = null;
 let MouseX: number = 0;
 let MouseY: number = 0;
 let CursorX: number = 0;
@@ -31,17 +32,23 @@ if (!/Android|iPhone|iPad|iPod|Opera Mini|IEMobile/i.test(navigator.userAgent)) 
 		if (event.target) {
 			const Object = event.target as HTMLElement;
 
-			if (Object.classList.contains("hoverable")) {
+			if (Object.classList.contains("hoverable") || Object.parentElement?.classList.contains("hoverable")) {
+				LastHoveredObject = Object;
 				Cursor.classList.add("active");
+			} else {
+				if (LastHoveredObject) {
+					Cursor.classList.remove("active");
+					LastHoveredObject = null;
+				}
 			}
 		}
 	});
 
-	HoverableObjects.forEach((Object) => {
-		Object.addEventListener("mouseleave", () => {
-			Cursor.classList.remove("active");
-		});
-	});
+	// HoverableObjects.forEach((Object) => {
+	// 	Object.addEventListener("mouseleave", () => {
+	// 		Cursor.classList.remove("active");
+	// 	});
+	// });
 } else {
 	Cursor.style.display = "none";
 }
