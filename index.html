@@ -58,13 +58,34 @@
 		<title>Portfolio</title>
 	</head>
 	<body class="min-h-screen flex justify-center items-center overflow-x-hidden bg-[#0a0a0a] font-mono cursor-none">
-		<div id="grid-background" class="fixed inset-0 grid-bg pointer-events-none z-0"></div>
+		<div class="grid-background fixed inset-0 grid-bg pointer-events-none z-0"></div>
 		<div id="cursor"></div>
 		<div id="noise"></div>
 		<div id="spotlight"></div>
 
 		<main
 			class="relative flex flex-col min-h-screen w-full max-w-[1920px] overflow-hidden [-webkit-mask-image:linear-gradient(to_left,transparent_0%,black_5%,black_95%,transparent_100%)]">
+			<div
+				id="menu"
+				class="fixed flex items-center justify-center inset-0 z-[1] min-h-screen w-full bg-void translate-x-full transition-all ease-out duration-300">
+				<div class="grid-background fixed inset-0 grid-bg pointer-events-none z-0"></div>
+
+				<div class="flex flex-col w-[80%]">
+					<ul class="flex flex-col text-gray-500 font-bold text-5xl gap-10 font-sans uppercase">
+						<li><a href="#profile">Profile</a></li>
+						<li><a href="#skills">Skills</a></li>
+						<li><a href="#works">Works</a></li>
+						<li><a href="#education">Education</a></li>
+						<li><a href="#contact">Contact</a></li>
+					</ul>
+
+					<div class="flex flex-col mt-12 w-full border-t border-subtle mx-auto text-mute text-xs tracking-widest pt-6 uppercase">
+						<span>Hello World</span>
+						<span>I'm a Frontend Developer</span>
+					</div>
+				</div>
+			</div>
+
 			<nav
 				class="fixed max-w-[1920px] flex justify-between items-center inset-0 mx-auto h-16 z-[999] px-24 phone:px-6 after:bg-black/85 phone:after:bg-black/20 after:content-[''] after:absolute after:inset-0 after:z-[-1] after:[-webkit-mask-image:linear-gradient(to_bottom,black_0%,70%,transparent_100%)] after:h-[150%]">
 				<span class="flex items-center">
@@ -111,7 +132,7 @@
 
 					<li>
 						<a
-							href=""
+							id="menu-btn"
 							class="hoverable hover:text-neon transition-all ease-in-out duration-500 cursor-none uppercase text-sm font-thin hidden phone:flex"
 							>[Menu]</a
 						>
