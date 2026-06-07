@@ -1,0 +1,597 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>PLN (Persero) UP2D Bali</title>
+        <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+            rel="stylesheet"
+        />
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                /* background: rgba(255, 0, 0, 0.056); */
+                font-family: "Poppins", sans-serif;
+            }
+
+            :root {
+                --primary-aqua: #33b5c3;
+                --primary-yellow: #facc15;
+
+                --darker-aqua: #52b5c3;
+                --transparent-aqua: #d0e4e7;
+            }
+
+            body {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                height: 100vh;
+
+                overflow-x: hidden;
+                background-color: #faf9f6;
+            }
+
+            main {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+
+                width: 100%;
+                max-width: 1280px;
+                padding-top: 6rem;
+
+                padding-inline: 3rem;
+            }
+
+            section {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+
+                .header {
+                    text-transform: uppercase;
+                    letter-spacing: 3px;
+                    font-size: 0.9rem;
+                    color: #566681;
+                    opacity: 0.4;
+                }
+            }
+
+            section:last-child {
+                margin-bottom: 12rem;
+            }
+
+            .top-container {
+                display: absolute;
+                top: 0;
+                width: 100%;
+            }
+
+            .style-units {
+                display: flex;
+                height: 100%;
+                padding-right: 4rem;
+
+                gap: 0.8rem;
+
+                .style-unit:first-child {
+                    display: flex;
+                    background: var(--primary-aqua);
+                    transform: skewX(-30deg);
+                    width: 18px;
+                    height: 100%;
+                }
+
+                .style-unit:last-child {
+                    background: var(--primary-yellow);
+                    transform: skewX(-30deg);
+                    width: 32px;
+                    height: 100%;
+                }
+            }
+
+            .header-design {
+                display: flex;
+                width: 100%;
+                height: 46px;
+
+                justify-content: end;
+                background: linear-gradient(90deg, #008c9d 0%, #00a0b2 100%);
+            }
+
+            .navigation-bar {
+                display: flex;
+                width: 100%;
+                height: 4.5rem;
+
+                border-bottom: 3px solid var(--primary-yellow);
+                justify-content: space-between;
+                align-items: center;
+
+                background-color: #ffffff;
+
+                padding-left: 8rem;
+                padding-right: 4rem;
+
+                .company-title {
+                    display: flex;
+                    align-items: center;
+                    height: 75%;
+
+                    gap: 0.8rem;
+                    cursor: pointer;
+                }
+
+                .company-title .text {
+                    display: flex;
+                    flex-direction: column;
+
+                    & span:first-child {
+                        font-style: italic;
+                        font-weight: 600;
+                        font-size: 1.4rem;
+                        line-height: 1;
+
+                        color: var(--primary-aqua);
+                    }
+
+                    & span:last-child {
+                        font-size: 0.8rem;
+                        font-weight: 550;
+                        line-height: 1;
+
+                        color: #adadad;
+                    }
+                }
+
+                .company-title img {
+                    height: 100%;
+                    background-color: var(--primary-yellow);
+                }
+            }
+
+            .navigation-container {
+                display: flex;
+                align-items: center;
+                position: relative;
+
+                & ul {
+                    display: flex;
+
+                    & li {
+                        list-style: none;
+                        font-weight: 500;
+                        color: #adadad;
+                        text-decoration: none;
+                        cursor: pointer;
+
+                        padding-inline: 1.2rem;
+                    }
+
+                    & li.active a {
+                        color: var(--primary-aqua);
+                    }
+
+                    & li a {
+                        text-decoration: none;
+                        text-transform: uppercase;
+                        font-weight: 525;
+                        color: #898989;
+                    }
+                }
+
+                & .sliding-tracker {
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    width: 100px;
+                    height: 3px;
+                    background-color: var(--primary-aqua);
+                    transition: all 0.2s ease-out;
+                }
+
+                & .search-box {
+                    display: flex;
+                    align-items: center;
+                    height: 2.4rem;
+                    gap: 0.8rem;
+
+                    background-color: #f1f5f9;
+                    border-radius: 10rem;
+
+                    margin-left: 2rem;
+                    padding: 0.5rem 1.2rem 0.5rem 1.2rem;
+                    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                }
+
+                & .search-box input {
+                    border: none;
+                    background: none;
+                }
+
+                & .search-box input:focus {
+                    outline: none;
+                }
+
+                & .search-box input::placeholder {
+                    color: #929292;
+                    font-weight: 500;
+                }
+            }
+
+            main {
+                .title {
+                    font-size: 5rem;
+                    font-weight: 600;
+                    line-height: 1;
+                }
+
+                .description {
+                    font-family: monospace;
+                    font-size: 1.6rem;
+                    font-style: italic;
+                    color: #566681;
+
+                    margin-top: 0.8rem;
+
+                    border-bottom: 1px solid rgba(117, 117, 117, 0.151);
+                    padding-bottom: 3rem;
+                    margin-bottom: 3rem;
+                }
+
+                .image-preview img {
+                    width: 100%;
+                    border-radius: 0.8rem;
+                    box-shadow: 0px 0px 32px rgba(0, 0, 0, 0.2);
+                }
+
+                p {
+                    margin-top: 3rem;
+                    font-size: 1.6rem;
+                    line-height: 1.8;
+                    color: #333;
+                }
+
+                pre[class*="language-"] {
+                    background-color: #f6f8fa;
+                    border: 1px solid #d0d7de;
+                    border-radius: 8px;
+                    padding: 1.25rem 1.5rem;
+                    overflow-x: auto;
+                    margin: 1.25rem 0;
+                    line-height: 1.7;
+                    font-size: 0.875rem;
+                }
+
+                pre[class*="language-"] code {
+                    font-family: "JetBrains Mono", "Fira Code", "Cascadia Code", monospace;
+                    background: none;
+                    padding: 0;
+                    border: none;
+                    font-size: 1.4rem;
+                    white-space: pre;
+                }
+
+                /* Inline code (bukan di dalam pre) */
+                code {
+                    font-family: "JetBrains Mono", "Fira Code", "Cascadia Code", monospace;
+                    background-color: #f0f0f0;
+                    color: #d63384;
+                    padding: 0.15em 0.4em;
+                    border-radius: 4px;
+                    font-size: 0.85em;
+                }
+
+                /* Custom scrollbar agar tidak terlalu mencolok */
+                pre::-webkit-scrollbar {
+                    height: 6px;
+                }
+
+                pre::-webkit-scrollbar-track {
+                    background: transparent;
+                }
+
+                pre::-webkit-scrollbar-thumb {
+                    background-color: #d0d7de;
+                    border-radius: 999px;
+                }
+
+                pre::-webkit-scrollbar-thumb:hover {
+                    background-color: #afb8c1;
+                }
+                ul {
+                    list-style: none;
+                    padding: 0;
+                    margin: 1rem 0 2rem 0;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 0.75rem;
+                }
+
+                ul li {
+                    position: relative;
+                    padding-left: 1.5rem;
+                    font-size: 1.6rem;
+                    line-height: 1.8;
+                    color: #333;
+                }
+
+                ul li::before {
+                    content: "";
+                    position: absolute;
+                    left: 0;
+                    top: 20%;
+                    width: 6px;
+                    height: 6px;
+                    border-radius: 50%;
+                    background-color: var(--primary-aqua);
+                }
+            }
+
+            .label {
+                padding: 0.6rem 2rem;
+                background-color: color-mix(in srgb, var(--primary-aqua), transparent 85%);
+                border: 1px solid var(--primary-aqua);
+                color: var(--darker-aqua);
+                width: fit-content;
+                border-radius: 10rem;
+
+                font-size: 1rem;
+                font-weight: 600;
+                text-transform: uppercase;
+                margin-bottom: 1rem;
+            }
+
+            @media (max-width: 920px) {
+                main {
+                    max-width: none !important;
+                    width: 100vw !important;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="top-container">
+            <div class="header-design">
+                <div class="style-units">
+                    <div class="style-unit"></div>
+                    <div class="style-unit"></div>
+                </div>
+            </div>
+
+            <div class="navigation-bar">
+                <div class="company-title" onclick="window.location.href = '../index.html'">
+                    <img src="../assets/logo-pln.webp" alt="" />
+                    <div class="text">
+                        <span>PLN</span>
+                        <span>PT. PLN (Persero) UP2D Bali</span>
+                    </div>
+                </div>
+
+                <div class="navigation-container">
+                    <ul>
+                        <li class="active"><a href="../index.html#profile">Profile</a></li>
+                        <li><a href="../index.html#sistem-magang">Sistem Magang</a></li>
+                        <li><a href="../index.html#karya-teknologi">Karya Teknologi</a></li>
+                    </ul>
+
+                    <div class="sliding-tracker"></div>
+
+                    <div class="search-box">
+                        <input type="text" placeholder="Cari Layanan" />
+                        <svg
+                            width="16px"
+                            height="16px"
+                            viewBox="0 0 32.00 32.00"
+                            version="1.1"
+                            xmlns="http://www.w3.org/2000/svg"
+                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                            xmlns:sketch="http://www.bohemiancoding.com/sketch/ns"
+                            fill="#33B5C3"
+                            transform="rotate(0)matrix(1, 0, 0, 1, 0, 0)"
+                            stroke="#33B5C3"
+                        >
+                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                            <g
+                                id="SVGRepo_tracerCarrier"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke="#CCCCCC"
+                                stroke-width="0.192"
+                            ></g>
+                            <g id="SVGRepo_iconCarrier">
+                                <title>search</title>
+                                <desc>Created with Sketch Beta.</desc>
+                                <defs></defs>
+                                <g id="Page-1" stroke-width="0.00032" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+                                    <g
+                                        id="Icon-Set"
+                                        sketch:type="MSLayerGroup"
+                                        transform="translate(-256.000000, -1139.000000)"
+                                        fill="#33B5C3"
+                                    >
+                                        <path
+                                            d="M269.46,1163.45 C263.17,1163.45 258.071,1158.44 258.071,1152.25 C258.071,1146.06 263.17,1141.04 269.46,1141.04 C275.75,1141.04 280.85,1146.06 280.85,1152.25 C280.85,1158.44 275.75,1163.45 269.46,1163.45 L269.46,1163.45 Z M287.688,1169.25 L279.429,1161.12 C281.591,1158.77 282.92,1155.67 282.92,1152.25 C282.92,1144.93 276.894,1139 269.46,1139 C262.026,1139 256,1144.93 256,1152.25 C256,1159.56 262.026,1165.49 269.46,1165.49 C272.672,1165.49 275.618,1164.38 277.932,1162.53 L286.224,1170.69 C286.629,1171.09 287.284,1171.09 287.688,1170.69 C288.093,1170.3 288.093,1169.65 287.688,1169.25 L287.688,1169.25 Z"
+                                            id="search"
+                                            sketch:type="MSShapeGroup"
+                                        ></path>
+                                    </g>
+                                </g>
+                            </g>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <main>
+            <div class="label">Side project</div>
+            <div class="title">Webshocket - Python Framework</div>
+            <div class="description">Framework Python WebSocket dengan RPC, sesi, dan rate limiting bawaan — tanpa boilerplate.</div>
+
+            <div class="image-preview">
+                <img src="../assets/mcp-feature-image.jpg" alt="" />
+            </div>
+
+            <p>
+                <em>Model Context Protocol</em> (MCP) adalah protokol standar yang memungkinkan asisten kecerdasan buatan terhubung
+                dengan layanan dan sumber data eksternal secara terstruktur. BlazeSearch-RS adalah implementasi <em>server</em> MCP
+                sekaligus mesin pencarian dan kurasi informasi yang dikembangkan sepenuhnya dalam bahasa pemrograman Rust — dirancang
+                untuk menjadi jembatan antara agen kecerdasan buatan dengan informasi dari <em>web</em> secara efisien, andal, dan
+                cepat.
+            </p>
+
+            <p>
+                Masalah mendasar yang dihadapi agen AI ketika mengakses informasi dari <em>web</em> secara langsung adalah
+                <strong>inefisiensi token</strong>. Ketika sebuah agen AI membaca halaman <em>web</em> mentah, ia harus memproses
+                seluruh konten — termasuk navigasi, iklan, <em>footer</em>, dan konten yang tidak relevan — yang menghabiskan jutaan
+                token tanpa memberikan nilai informasi yang sepadan. BlazeSearch-RS menyelesaikan masalah ini dengan bertindak sebagai
+                lapisan <strong>pemfilter dan sintesis</strong> di antara <em>web</em> dan agen AI: hanya informasi yang terverifikasi
+                dan relevan yang diteruskan, dalam format ringkas yang siap dikonsumsi.
+            </p>
+
+            <p><strong>Pipeline tiga tahap</strong></p>
+
+            <p>
+                Setiap permintaan pencarian diproses melalui tiga tahap yang berjalan secara berurutan namun dioptimalkan untuk
+                kecepatan maksimal:
+            </p>
+
+            <ul>
+                <li>
+                    <strong>Pencarian multi-sumber:</strong> BlazeSearch-RS mendukung tiga penyedia pencarian secara bergantian —
+                    Serper, Brave Search, dan Firecrawl — yang dapat dikonfigurasi sesuai kebutuhan. Hasil pencarian dikumpulkan
+                    beserta konten lengkap halaman yang di-<em>scrape</em> secara paralel.
+                </li>
+
+                <li>
+                    <strong>Penyaringan relevansi berbasis LLM:</strong> Sebelum konten diteruskan ke tahap sintesis, sebuah model
+                    bahasa ringan mengevaluasi setiap URL dan menyaring hanya hasil yang benar-benar relevan dengan kueri. Tahap ini
+                    mencegah <em>noise</em> dari konten yang tidak berkaitan masuk ke dalam laporan akhir.
+                </li>
+
+                <li>
+                    <strong>Sintesis terstruktur:</strong> Konten yang lolos penyaringan diproses oleh model bahasa untuk menghasilkan
+                    laporan Markdown yang terstruktur — lengkap dengan tabel perbandingan, ringkasan eksekutif, dan lampiran verifikasi
+                    sumber — bukan sekadar kumpulan kutipan mentah.
+                </li>
+            </ul>
+
+            <p>
+                <strong>Penanganan <em>bot-detection</em> modern</strong>
+            </p>
+
+            <p>
+                Tantangan terbesar dalam pengambilan konten dari <em>web</em> secara otomatis adalah sistem
+                <strong><em>anti-bot</em> modern</strong> yang tidak lagi sekadar memeriksa <em>User-Agent</em>, melainkan menganalisis
+                sidik jari TLS (<em>TLS fingerprint</em>) dan perilaku HTTP/2 pada tingkat jaringan. BlazeSearch-RS menggunakan
+                <em>crate</em> <code>wreq</code> — sebuah <em>hard fork</em> dari <code>reqwest</code> — yang menyediakan kendali
+                mendalam atas ekstensi TLS dan pengaturan HTTP/2 sehingga setiap permintaan HTTP yang dikirim hampir tidak dapat
+                dibedakan dari lalu lintas peramban sungguhnya. Ketika akses langsung gagal, sistem secara otomatis mencoba sumber
+                cadangan: Wayback Machine dan Google Webcache — memastikan konten tetap dapat diakses meskipun situs target memblokir
+                akses langsung.
+            </p>
+
+            <p><strong>Pemrosesan paralel menyeluruh</strong></p>
+
+            <p>
+                Salah satu keunggulan fundamental BlazeSearch-RS adalah
+                <strong>pemrosesan paralel yang diterapkan di setiap lapisan</strong>. Pengambilan konten dari beberapa URL dilakukan
+                secara bersamaan menggunakan Tokio sebagai <em>runtime</em> asinkron. Mode penelitian multi-kueri menjalankan seluruh
+                <em>pipeline</em> — pencarian, penyaringan, hingga sintesis — untuk setiap sub-kueri secara paralel sebagai tugas Tokio
+                independen. Hasilnya adalah waktu respons yang mendekati waktu kueri tunggal meskipun memproses banyak topik sekaligus,
+                dengan <em>overhead</em>
+                memori yang sangat rendah berkat model kepemilikan Rust yang menghilangkan kebutuhan akan
+                <em>garbage collector</em>.
+            </p>
+
+            <p>
+                <strong>Mode penelitian mendalam (<em>deep research</em>)</strong>
+            </p>
+
+            <p>
+                Untuk pertanyaan yang membutuhkan pemahaman berlapis, BlazeSearch-RS menyediakan mode
+                <strong><em>deep research</em></strong> dengan kedalaman yang dapat dikonfigurasi hingga delapan iterasi. Tidak seperti
+                pencarian biasa yang menghasilkan satu laporan tunggal, mode ini mengimplementasikan <em>loop</em> keputusan mandiri:
+                setiap iterasi mengevaluasi celah informasi dari hasil sebelumnya, merumuskan pertanyaan lanjutan yang lebih spesifik,
+                dan menjalankan pencarian baru untuk mengisi celah tersebut — persis seperti cara seorang peneliti profesional
+                mempersempit topik secara bertahap hingga mendapatkan gambaran yang komprehensif.
+            </p>
+
+            <p>
+                Sebelum memulai dekomposisi kueri, BlazeSearch-RS juga menjalankan
+                <strong>deteksi ambiguitas</strong> secara otomatis. Kueri yang terlalu singkat atau mengandung nomor versi — yang
+                berpotensi merujuk pada banyak hal berbeda — terlebih dahulu digroundkan dengan hasil pencarian cepat sebelum
+                didekomposisi menjadi sub-kueri yang lebih spesifik. Mekanisme ini mencegah dekomposisi yang meleset akibat
+                interpretasi kueri yang keliru.
+            </p>
+
+            <p>
+                Seluruh kapabilitas ini tersedia baik melalui antarmuka baris perintah (CLI) untuk penggunaan langsung, maupun sebagai
+                <em>server</em> MCP yang dapat dihubungkan ke agen AI eksternal seperti Claude Code — menjadikan BlazeSearch-RS
+                infrastruktur riset yang dapat diintegrasikan ke dalam rantai kerja kecerdasan buatan yang lebih luas.
+            </p>
+
+            <p><strong>Hasil nyata: demo langsung</strong></p>
+
+            <p>
+                Berikut adalah contoh keluaran BlazeSearch-RS saat menjalankan kueri
+                <em>"OpenAI latest model"</em>. Di balik layar, sistem mencari dari 10 sumber secara paralel, menangani situs yang
+                memblokir akses langsung melalui Wayback Machine, menyaring hasil yang relevan, lalu mensintesis laporan terstruktur —
+                seluruhnya dalam hitungan detik:
+            </p>
+
+            <pre
+                style="
+                    background: #f6f8fa;
+                    border: 1px solid #d0d7de;
+                    border-radius: 8px;
+                    padding: 1.25rem 1.5rem;
+                    overflow-x: auto;
+                    font-size: 0.95rem;
+                    line-height: 1.7;
+                    font-family: &quot;JetBrains Mono&quot;, &quot;Fira Code&quot;, monospace;
+                "
+            >
+🔍 Searching for: OpenAI latest model
+
+## Model Designations Mentioned
+- **GPT-5.5** – flagship model for complex reasoning and coding.
+- **GPT-5.4** – strongest model on benchmark performance; Mini and Nano variants available.
+- **GPT-5.2** – latest flagship as of early 2026, optimized for production scale.
+
+## Source Comparison
+| Source   | Model Mentioned          | Claim                                      |
+|----------|--------------------------|--------------------------------------------|
+| Source 1 | gpt-5.5, gpt-5.4-mini   | gpt-5.5 is flagship; smaller for latency   |
+| Source 5 | GPT-5.4                  | Strongest model on knowledge benchmark     |
+| Source 6 | GPT-5.2, Mini, Nano      | Latest flagship as of early 2026           |
+
+## Gaps & Uncertainties
+- Sources conflict on exact latest version — no unified naming convention found.
+- No release dates disclosed across any source.
+- Relationship between versions (e.g. 5.5 vs 5.4) left unclarified.</pre
+            >
+
+            <p>
+                Yang membedakan keluaran BlazeSearch-RS dari pencarian biasa adalah
+                <strong>kejujuran epistemik</strong> pada laporannya: ketika sumber-sumber yang dikumpulkan saling bertentangan, sistem
+                tidak memilih satu jawaban secara arbitrer, melainkan mempresentasikan kontradiksi tersebut secara eksplisit beserta
+                celah informasi yang tidak dapat dijawab — persis seperti standar analitik intelijen profesional yang ditanamkan dalam
+                <em>system prompt</em>-nya.
+            </p>
+        </main>
+    </body>
+</html>

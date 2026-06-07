@@ -1,0 +1,524 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>PLN (Persero) UP2D Bali</title>
+        <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+            rel="stylesheet"
+        />
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                /* background: rgba(255, 0, 0, 0.056); */
+                font-family: "Poppins", sans-serif;
+            }
+
+            :root {
+                --primary-aqua: #33b5c3;
+                --primary-yellow: #facc15;
+
+                --darker-aqua: #52b5c3;
+                --transparent-aqua: #d0e4e7;
+            }
+
+            body {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                height: 100vh;
+
+                overflow-x: hidden;
+                background-color: #faf9f6;
+            }
+
+            main {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+
+                width: 100%;
+                max-width: 1280px;
+                padding-top: 6rem;
+
+                padding-inline: 3rem;
+            }
+
+            section {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+
+                .header {
+                    text-transform: uppercase;
+                    letter-spacing: 3px;
+                    font-size: 0.9rem;
+                    color: #566681;
+                    opacity: 0.4;
+                }
+            }
+
+            section:last-child {
+                margin-bottom: 12rem;
+            }
+
+            .top-container {
+                display: absolute;
+                top: 0;
+                width: 100%;
+            }
+
+            .style-units {
+                display: flex;
+                height: 100%;
+                padding-right: 4rem;
+
+                gap: 0.8rem;
+
+                .style-unit:first-child {
+                    display: flex;
+                    background: var(--primary-aqua);
+                    transform: skewX(-30deg);
+                    width: 18px;
+                    height: 100%;
+                }
+
+                .style-unit:last-child {
+                    background: var(--primary-yellow);
+                    transform: skewX(-30deg);
+                    width: 32px;
+                    height: 100%;
+                }
+            }
+
+            .header-design {
+                display: flex;
+                width: 100%;
+                height: 46px;
+
+                justify-content: end;
+                background: linear-gradient(90deg, #008c9d 0%, #00a0b2 100%);
+            }
+
+            .navigation-bar {
+                display: flex;
+                width: 100%;
+                height: 4.5rem;
+
+                border-bottom: 3px solid var(--primary-yellow);
+                justify-content: space-between;
+                align-items: center;
+
+                background-color: #ffffff;
+
+                padding-left: 8rem;
+                padding-right: 4rem;
+
+                .company-title {
+                    display: flex;
+                    align-items: center;
+                    height: 75%;
+
+                    gap: 0.8rem;
+                    cursor: pointer;
+                }
+
+                .company-title .text {
+                    display: flex;
+                    flex-direction: column;
+
+                    & span:first-child {
+                        font-style: italic;
+                        font-weight: 600;
+                        font-size: 1.4rem;
+                        line-height: 1;
+
+                        color: var(--primary-aqua);
+                    }
+
+                    & span:last-child {
+                        font-size: 0.8rem;
+                        font-weight: 550;
+                        line-height: 1;
+
+                        color: #adadad;
+                    }
+                }
+
+                .company-title img {
+                    height: 100%;
+                    background-color: var(--primary-yellow);
+                }
+            }
+
+            .navigation-container {
+                display: flex;
+                align-items: center;
+                position: relative;
+
+                & ul {
+                    display: flex;
+
+                    & li {
+                        list-style: none;
+                        font-weight: 500;
+                        color: #adadad;
+                        text-decoration: none;
+                        cursor: pointer;
+
+                        padding-inline: 1.2rem;
+                    }
+
+                    & li.active a {
+                        color: var(--primary-aqua);
+                    }
+
+                    & li a {
+                        text-decoration: none;
+                        text-transform: uppercase;
+                        font-weight: 525;
+                        color: #898989;
+                    }
+                }
+
+                & .sliding-tracker {
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    width: 100px;
+                    height: 3px;
+                    background-color: var(--primary-aqua);
+                    transition: all 0.2s ease-out;
+                }
+
+                & .search-box {
+                    display: flex;
+                    align-items: center;
+                    height: 2.4rem;
+                    gap: 0.8rem;
+
+                    background-color: #f1f5f9;
+                    border-radius: 10rem;
+
+                    margin-left: 2rem;
+                    padding: 0.5rem 1.2rem 0.5rem 1.2rem;
+                    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                }
+
+                & .search-box input {
+                    border: none;
+                    background: none;
+                }
+
+                & .search-box input:focus {
+                    outline: none;
+                }
+
+                & .search-box input::placeholder {
+                    color: #929292;
+                    font-weight: 500;
+                }
+            }
+
+            main {
+                .title {
+                    font-size: 5rem;
+                    font-weight: 600;
+                    line-height: 1;
+                }
+
+                .description {
+                    font-family: monospace;
+                    font-size: 1.6rem;
+                    font-style: italic;
+                    color: #566681;
+
+                    margin-top: 0.8rem;
+
+                    border-bottom: 1px solid rgba(117, 117, 117, 0.151);
+                    padding-bottom: 3rem;
+                    margin-bottom: 3rem;
+                }
+
+                .image-preview img {
+                    width: 100%;
+                    border-radius: 0.8rem;
+                    box-shadow: 0px 0px 32px rgba(0, 0, 0, 0.2);
+                }
+
+                p {
+                    margin-top: 3rem;
+                    font-size: 1.6rem;
+                    line-height: 1.8;
+                    color: #333;
+                }
+
+                pre[class*="language-"] {
+                    background-color: #f6f8fa;
+                    border: 1px solid #d0d7de;
+                    border-radius: 8px;
+                    padding: 1.25rem 1.5rem;
+                    overflow-x: auto;
+                    margin: 1.25rem 0;
+                    line-height: 1.7;
+                    font-size: 0.875rem;
+                }
+
+                pre[class*="language-"] code {
+                    font-family: "JetBrains Mono", "Fira Code", "Cascadia Code", monospace;
+                    background: none;
+                    padding: 0;
+                    border: none;
+                    font-size: 1.4rem;
+                    white-space: pre;
+                }
+
+                /* Inline code (bukan di dalam pre) */
+                code {
+                    font-family: "JetBrains Mono", "Fira Code", "Cascadia Code", monospace;
+                    background-color: #f0f0f0;
+                    color: #d63384;
+                    padding: 0.15em 0.4em;
+                    border-radius: 4px;
+                    font-size: 0.85em;
+                }
+
+                /* Custom scrollbar agar tidak terlalu mencolok */
+                pre::-webkit-scrollbar {
+                    height: 6px;
+                }
+
+                pre::-webkit-scrollbar-track {
+                    background: transparent;
+                }
+
+                pre::-webkit-scrollbar-thumb {
+                    background-color: #d0d7de;
+                    border-radius: 999px;
+                }
+
+                pre::-webkit-scrollbar-thumb:hover {
+                    background-color: #afb8c1;
+                }
+                ul {
+                    list-style: none;
+                    padding: 0;
+                    margin: 1rem 0 2rem 0;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 0.75rem;
+                }
+
+                ul li {
+                    position: relative;
+                    padding-left: 1.5rem;
+                    font-size: 1.6rem;
+                    line-height: 1.8;
+                    color: #333;
+                }
+
+                ul li::before {
+                    content: "";
+                    position: absolute;
+                    left: 0;
+                    top: 15%;
+                    width: 6px;
+                    height: 6px;
+                    border-radius: 50%;
+                    background-color: var(--primary-aqua);
+                }
+            }
+
+            .label {
+                padding: 0.6rem 2rem;
+                background-color: color-mix(in srgb, var(--primary-aqua), transparent 85%);
+                border: 1px solid var(--primary-aqua);
+                color: var(--darker-aqua);
+                width: fit-content;
+                border-radius: 10rem;
+
+                font-size: 1rem;
+                font-weight: 600;
+                text-transform: uppercase;
+                margin-bottom: 1rem;
+            }
+
+            @media (max-width: 920px) {
+                main {
+                    max-width: none !important;
+                    width: 100vw !important;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="top-container">
+            <div class="header-design">
+                <div class="style-units">
+                    <div class="style-unit"></div>
+                    <div class="style-unit"></div>
+                </div>
+            </div>
+
+            <div class="navigation-bar">
+                <div class="company-title" onclick="window.location.href = '../index.html'">
+                    <img src="../assets/logo-pln.webp" alt="" />
+                    <div class="text">
+                        <span>PLN</span>
+                        <span>PT. PLN (Persero) UP2D Bali</span>
+                    </div>
+                </div>
+
+                <div class="navigation-container">
+                    <ul>
+                        <li class="active"><a href="../index.html#profile">Profile</a></li>
+                        <li><a href="../index.html#sistem-magang">Sistem Magang</a></li>
+                        <li><a href="../index.html#karya-teknologi">Karya Teknologi</a></li>
+                    </ul>
+
+                    <div class="sliding-tracker"></div>
+
+                    <div class="search-box">
+                        <input type="text" placeholder="Cari Layanan" />
+                        <svg
+                            width="16px"
+                            height="16px"
+                            viewBox="0 0 32.00 32.00"
+                            version="1.1"
+                            xmlns="http://www.w3.org/2000/svg"
+                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                            xmlns:sketch="http://www.bohemiancoding.com/sketch/ns"
+                            fill="#33B5C3"
+                            transform="rotate(0)matrix(1, 0, 0, 1, 0, 0)"
+                            stroke="#33B5C3"
+                        >
+                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                            <g
+                                id="SVGRepo_tracerCarrier"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke="#CCCCCC"
+                                stroke-width="0.192"
+                            ></g>
+                            <g id="SVGRepo_iconCarrier">
+                                <title>search</title>
+                                <desc>Created with Sketch Beta.</desc>
+                                <defs></defs>
+                                <g id="Page-1" stroke-width="0.00032" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+                                    <g
+                                        id="Icon-Set"
+                                        sketch:type="MSLayerGroup"
+                                        transform="translate(-256.000000, -1139.000000)"
+                                        fill="#33B5C3"
+                                    >
+                                        <path
+                                            d="M269.46,1163.45 C263.17,1163.45 258.071,1158.44 258.071,1152.25 C258.071,1146.06 263.17,1141.04 269.46,1141.04 C275.75,1141.04 280.85,1146.06 280.85,1152.25 C280.85,1158.44 275.75,1163.45 269.46,1163.45 L269.46,1163.45 Z M287.688,1169.25 L279.429,1161.12 C281.591,1158.77 282.92,1155.67 282.92,1152.25 C282.92,1144.93 276.894,1139 269.46,1139 C262.026,1139 256,1144.93 256,1152.25 C256,1159.56 262.026,1165.49 269.46,1165.49 C272.672,1165.49 275.618,1164.38 277.932,1162.53 L286.224,1170.69 C286.629,1171.09 287.284,1171.09 287.688,1170.69 C288.093,1170.3 288.093,1169.65 287.688,1169.25 L287.688,1169.25 Z"
+                                            id="search"
+                                            sketch:type="MSShapeGroup"
+                                        ></path>
+                                    </g>
+                                </g>
+                            </g>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <main>
+            <div class="label">Side project</div>
+            <div class="title">RoboCam - Automated Relay Monitoring System</div>
+            <div class="description">Sistem pemantauan relay otomatis berbasis kamera untuk lingkungan PLN UP2D Bali.</div>
+
+            <div class="image-preview">
+                <img src="../assets/kubikel.jpg" alt="" />
+            </div>
+
+            <p>
+                RoboCam adalah sistem pemantauan <em>relay</em> otomatis berbasis kamera yang dirancang untuk menggantikan proses
+                inspeksi manual pada panel distribusi listrik di lingkungan PLN UP2D Bali. Sistem ini memanfaatkan kecerdasan buatan
+                untuk mendeteksi status indikator LED pada <em>relay</em> MiCOM Schneider Electric secara <em>real time</em> — tanpa
+                keterlibatan operator selama proses berlangsung.
+            </p>
+
+            <p>
+                Tantangan utama dalam pemantauan <em>relay</em> di lingkungan industri kelistrikan adalah
+                <strong>skalabilitas inspeksi</strong>. Sebuah Gardu Induk dapat memiliki puluhan <em>cubicle</em> yang masing-masing
+                memuat panel <em>relay</em> dengan empat indikator LED — <em>Trip</em>, <em>Alarm</em>, <em>Warning</em>, dan
+                <em>Healthy</em> — yang semuanya harus dipantau secara berkala. Inspeksi manual tidak hanya memakan waktu, tetapi juga
+                rentan terhadap kelalaian manusia. RoboCam menyelesaikan masalah ini dengan mengotomasi seluruh proses pemindaian
+                menggunakan satu modul kamera yang bergerak di atas rel horizontal.
+            </p>
+
+            <p><strong>Arsitektur sistem</strong></p>
+
+            <p>Sistem RoboCam terdiri dari beberapa komponen utama yang bekerja secara terpadu:</p>
+
+            <ul>
+                <li>
+                    <strong>Modul kamera pada rel horizontal:</strong> Kamera terpasang pada platform bergerak yang melintasi seluruh
+                    barisan <em>cubicle</em> dari atas, memungkinkan satu kamera mencakup seluruh area pemantauan tanpa perlu kamera
+                    statis di setiap <em>cubicle</em>.
+                </li>
+
+                <li>
+                    <strong>Jetson Orin Nano sebagai unit komputasi:</strong> Seluruh inferensi model AI, pembacaan status LED, dan
+                    pengendalian motor dijalankan langsung di perangkat <em>edge</em> ini — tanpa ketergantungan pada server eksternal
+                    selama operasi berlangsung.
+                </li>
+
+                <li>
+                    <strong>Pengendalian motor via PWM:</strong> Pergerakan platform dikendalikan melalui pengaturan
+                    <em>Pulse Width Modulation</em> (PWM) pada motor penggerak. Jetson Orin Nano mengatur kecepatan dan arah motor
+                    secara langsung untuk memposisikan kamera di atas <em>cubicle</em> yang dituju.
+                </li>
+            </ul>
+
+            <p><strong>Deteksi posisi tanpa sensor tambahan</strong></p>
+
+            <p>
+                Salah satu tantangan teknis terbesar dalam sistem ini adalah menentukan posisi kamera secara akurat tanpa menggunakan
+                sensor posisi fisik seperti LiDAR atau <em>encoder</em>. RoboCam mengatasi ini dengan mengadaptasi
+                <strong>algoritma penghitungan objek</strong> yang lazim digunakan dalam sistem pemantauan lalu lintas kendaraan.
+                Setiap kali kamera melintasi batas antara dua <em>cubicle</em>, sistem mencatatnya sebagai satu hitungan — sehingga
+                posisi <em>cubicle</em> yang sedang dipantau dapat diidentifikasi secara akurat hanya berdasarkan jumlah transisi yang
+                telah terjadi. Pendekatan ini menghilangkan kebutuhan akan sensor posisi tambahan sekaligus menyederhanakan arsitektur
+                perangkat keras secara signifikan.
+            </p>
+
+            <p><strong>Pipeline deteksi AI</strong></p>
+
+            <p>
+                Inti dari kemampuan deteksi RoboCam adalah model YOLOv11 yang dilatih khusus untuk mengenali panel <em>relay</em> MiCOM
+                beserta keempat indikator LED-nya. <em>Training data</em> dikumpulkan langsung dari Gardu Induk dalam format video,
+                kemudian diekstraksi per <em>frame</em> menggunakan FFmpeg. Anotasi dilakukan menggunakan Label Studio dengan
+                pendekatan <em>bounding box</em>, dan pelatihan model dilakukan di Google Colab untuk memanfaatkan akselerasi GPU.
+            </p>
+
+            <p>
+                Untuk memaksimalkan performa inferensi pada Jetson Orin Nano, model melalui proses konversi bertahap: dari format
+                <code>.pt</code> ke <code>.onnx</code>, kemudian ke format <code>.engine</code> menggunakan TensorRT.
+                <strong>Konversi ke TensorRT</strong> menghasilkan peningkatan kecepatan inferensi yang signifikan dibandingkan format
+                aslinya, menjadikan deteksi <em>real time</em> layak dilakukan pada perangkat <em>edge</em> dengan sumber daya
+                terbatas.
+            </p>
+
+            <p>
+                Hasil pembacaan dari setiap <em>relay</em> — mencakup status <em>Trip</em>, <em>Alarm</em>, <em>Warning</em>,
+                <em>Healthy</em>, serta mode kendali <em>remote</em> atau <em>local</em> — kemudian digabungkan dengan data
+                identifikasi <em>cubicle</em> berbasis penanda ArUco, melengkapi siklus pemantauan otomatis dari ujung ke ujung.
+            </p>
+        </main>
+    </body>
+</html>

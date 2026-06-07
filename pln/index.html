@@ -183,8 +183,8 @@
 
                         <span class="title">Sistem <span class="highlight">Magang</span></span>
                         <div class="description">
-                            Program Praktik Kerja Lapangan (PKL) di PT PLN (Persero) memberikan wadah bagi mahasiswa untuk mengenal
-                            dunia industri kelistrikan secara riil. Peserta difokuskan pada observasi lapangan, pemahaman SOP, serta
+                            Program Praktik Kerja Lapangan (PKL) di PT PLN (Persero) memberikan wadah bagi siswa untuk mengenal dunia
+                            industri kelistrikan secara riil. Peserta difokuskan pada observasi lapangan, pemahaman SOP, serta
                             kontribusi langsung melalui mini project sesuai divisi yang ditempati.
                         </div>
 
@@ -203,28 +203,29 @@
                             <div class="container-description">
                                 <h1>Bulan 1: Introduction</h1>
                                 <p>
-                                    Peserta melakukan pengamatan langsung di lapangan untuk memahami proses operasional dan tantangan
-                                    yang dihadapi.
+                                    Pengenalan lingkungan kerja, konsep dasar SCADA, serta proses distribusi listrik PLN dari
+                                    pembangkit hingga pelanggan, termasuk peralatan dan sistem yang digunakan di UP2D Bali.
                                 </p>
                             </div>
                         </div>
                         <div class="container">
                             <span class="num">02</span>
                             <div class="container-description">
-                                <h1>Bulan 2 - 3: Job Shadowing</h1>
+                                <h1>Bulan 2 - 3: Project Assignment</h1>
                                 <p>
-                                    Peserta melakukan pengamatan langsung di lapangan untuk memahami proses operasional dan tantangan
-                                    yang dihadapi.
+                                    Penugasan pengembangan sistem pemantauan kubikel elektrik otomatis berbasis kamera dan AI, yang
+                                    kemudian dinamai "RoboCam" disertai pengamatan langsung di lapangan untuk memahami tantangan
+                                    operasional yang ada.
                                 </p>
                             </div>
                         </div>
                         <div class="container">
                             <span class="num">03</span>
                             <div class="container-description">
-                                <h1>Bulan 4 - 5: Project Assignment</h1>
+                                <h1>Bulan 4 - 5: Development & Testing</h1>
                                 <p>
-                                    Peserta melakukan pengamatan langsung di lapangan untuk memahami proses operasional dan tantangan
-                                    yang dihadapi.
+                                    Pengembangan dan pengujian RoboCam secara langsung di lapangan untuk memastikan performa optimal,
+                                    sekaligus mengerjakan proyek pribadi di sela waktu magang.
                                 </p>
                             </div>
                         </div>
@@ -233,8 +234,8 @@
                             <div class="container-description">
                                 <h1>Bulan 6: Evaluasi Akhir</h1>
                                 <p>
-                                    Peserta melakukan pengamatan langsung di lapangan untuk memahami proses operasional dan tantangan
-                                    yang dihadapi.
+                                    Evaluasi dan penyempurnaan RoboCam berdasarkan <em>feedback</em> supervisor, serta penyusunan
+                                    laporan akhir pengalaman magang selama 6 bulan di UP2D Bali.
                                 </p>
                             </div>
                         </div>
@@ -264,33 +265,81 @@
 
                 <div class="projects">
                     <div class="project">
-                        <div class="image">
-                            <img src="assets/relay-detector.png" alt="" />
+                        <div class="image direct-project" data-name="robocam">
+                            <img src="assets/kubikel.jpg" alt="" />
+
+                            <button>
+                                <span>Laporan Lengkap</span>
+                                <svg
+                                    width="64px"
+                                    height="64px"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    stroke="#33b5c3"
+                                >
+                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                    <g id="SVGRepo_iconCarrier">
+                                        <path
+                                            d="M6 12H18M18 12L13 7M18 12L13 17"
+                                            stroke="#33b5c3"
+                                            stroke-width="1.44"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                        ></path>
+                                    </g>
+                                </svg>
+                            </button>
                         </div>
 
                         <div class="content">
-                            <span class="title">RoboCam</span>
+                            <span class="title direct-project" data-name="robocam">RoboCam</span>
                             <span class="brief-description"
                                 >Sistem pemantauan kubikel elektrik otomatis berbasis AI dengan navigasi posisi menggunakan
                                 RPLidar.</span
                             >
 
                             <div class="description">
-                                Sistem ini menggunakan RPLidar untuk menentukan posisi kamera secara akurat di sepanjang deretan kubikl
-                                elektrik, dengan pergerakan dikontrol melalui PWM motor pada Jetson. Kamera yang dilengkapi model
-                                YOLOv8 mendeteksi status relay dan kondisi remote secara real-time, memungkinkan operator memantau
-                                seluruh kubikl secara otomatis dan terjadwal.
+                                Sistem ini menggunakan RPLidar untuk menentukan posisi kamera secara akurat di sepanjang deretan
+                                kubikel elektrik, dengan pergerakan dikontrol melalui PWM motor pada Jetson. Kamera yang dilengkapi
+                                model YOLOv8 mendeteksi status relay dan kondisi remote secara real-time, memungkinkan operator
+                                memantau seluruh kubikel secara otomatis dan terjadwal.
                             </div>
                         </div>
                     </div>
 
                     <div class="project">
-                        <div class="image">
+                        <div class="image direct-project" data-name="blazesearch">
                             <img src="assets/mcp-feature-image.jpg" alt="" />
+
+                            <button>
+                                <span>Laporan Lengkap</span>
+                                <svg
+                                    width="64px"
+                                    height="64px"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    stroke="#33b5c3"
+                                >
+                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                    <g id="SVGRepo_iconCarrier">
+                                        <path
+                                            d="M6 12H18M18 12L13 7M18 12L13 17"
+                                            stroke="#33b5c3"
+                                            stroke-width="1.44"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                        ></path>
+                                    </g>
+                                </svg>
+                            </button>
                         </div>
 
                         <div class="content">
-                            <span class="title">BlazeSearch MCP</span>
+                            <span class="title direct-project" data-name="blazesearch">BlazeSearch MCP</span>
                             <span class="brief-description"
                                 >Sebuah alat pencarian cerdas dengan integrasi AI untuk Agentic Coding AI</span
                             >
@@ -304,12 +353,36 @@
                     </div>
 
                     <div class="project">
-                        <div class="image">
+                        <div class="image direct-project" data-name="webshocket">
                             <img src="assets/websocket.jpg" alt="" />
+
+                            <button>
+                                <span>Laporan Lengkap</span>
+                                <svg
+                                    width="64px"
+                                    height="64px"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    stroke="#33b5c3"
+                                >
+                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                    <g id="SVGRepo_iconCarrier">
+                                        <path
+                                            d="M6 12H18M18 12L13 7M18 12L13 17"
+                                            stroke="#33b5c3"
+                                            stroke-width="1.44"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                        ></path>
+                                    </g>
+                                </svg>
+                            </button>
                         </div>
 
                         <div class="content">
-                            <span class="title">Webshocket</span>
+                            <span class="title direct-project" data-name="webshocket">Webshocket</span>
                             <span class="brief-description"
                                 >Sebuah framework Python asinkron untuk komunikasi real-time berbasis WebSocket.</span
                             >
