@@ -591,6 +591,16 @@ class MyHandler(webshocket.WebSocketHandler):
             </p>
 
             <p>
+                Tidak hanya itu, WebShocket menawarkan performa yang lebih baik karena menggunakan library WebSocket low-level yang
+                dioptimalkan yakni <em>picows</em>. Dalam pengujian internal, Webshocket mampu menangani ribuan koneksi simultan dengan
+                latensi minimal, menjadikannya pilihan yang solid untuk aplikasi real-time berskala besar.
+            </p>
+
+            <div class="image-preview">
+                <img src="../assets/benchmark_comparison.png" alt="" />
+            </div>
+
+            <p>
                 Webshocket juga mendukung <strong><em>streaming</em> RPC</strong> secara bawaan menggunakan <em>async generator</em>,
                 menjadikannya pilihan tepat untuk <em>streaming</em> token AI atau umpan data langsung:
             </p>
